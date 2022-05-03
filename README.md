@@ -10,6 +10,7 @@ javac *.java
 
 ```
 This compiles all java files 
+> Add the csv data files where java source files are located.
 
 > Run the main entry class 
 ```sh
