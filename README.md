@@ -57,7 +57,8 @@ Composite Design Pattern - This is used to create a tree structure of the databa
 
 # Screen Shots
 <img width="1283" alt="image" src="https://user-images.githubusercontent.com/100320652/166870390-bed79fdb-9338-4c84-a6fe-9bb0b67c3aaa.png">
-<img width="1078" alt="image" src="https://user-images.githubusercontent.com/100320652/166870678-cc3d428f-24e1-494a-83c5-1e06a0d4b3bc.png">
+<img width="1218" alt="image" src="https://user-images.githubusercontent.com/100320652/166927545-f9c29167-24b2-46cb-a2a2-7103915f0746.png">
+
 
 
 Billing.java - This is the class which contains the main method. - This is the entry point to the program and links to the other classes.
