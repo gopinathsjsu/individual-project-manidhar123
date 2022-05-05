@@ -56,3 +56,8 @@ In this project, the database is injected into the other classes.
 Composite Design Pattern - This is used to create a tree structure of the database.
 
 # Screen Shots
+<img width="1283" alt="image" src="https://user-images.githubusercontent.com/100320652/166870390-bed79fdb-9338-4c84-a6fe-9bb0b67c3aaa.png">
+<img width="1078" alt="image" src="https://user-images.githubusercontent.com/100320652/166870678-cc3d428f-24e1-494a-83c5-1e06a0d4b3bc.png">
+
+
+Billing.java - This is the class which contains the main method. - This is the entry point to the program and links to the other classes.
