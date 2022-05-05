@@ -46,4 +46,28 @@ public class Item {
     public void setPrice(int price) {
         this.price = price;
     }
+
+    public String toString() {
+        return "Item [category=" + category + ", item=" + item + ", quantity=" + quantity + ", price=" + price + "]";
+    }
+
+    public static void main(String[] args) {
+        Item item = new Item("category", "item", 1, 1);
+        // create 10 items
+        // / "Item","Quantity","Card number"
+        // "Milk","1","1234 5678 9101 1121"
+        // "Bread","2","1235 5678 9101 1121"
+        // "Oil","1","1236 5678 9101 1121"
+        // "Apples","10","3423 6785 1234 1234"
+        // "Blanket","3","3424 6785 1234 1234"
+        Item[] items = new Item[10];
+        for (int i = 0; i < items.length; i++) {
+            items[i] = new Item("Drinks", "Milk", 1, 1);
+        }
+
+        // print 
+        for (int i = 0; i < items.length; i++) {
+            System.out.println(items[i]);
+        }
+    }
 }
