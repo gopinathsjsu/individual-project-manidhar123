@@ -123,6 +123,9 @@ public class Db {
         System.out.println("Card Number: " + cardNumbers.get(cardNumber));
     }
 
+    public void addItem(String item, int quantity, String cardNumber) {
+    }
+
   
 
 
