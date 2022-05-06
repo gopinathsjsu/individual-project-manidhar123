@@ -30,9 +30,11 @@ public class Billing {
                 String cardNumber = data[2];
                 if (data.length == 4) {
                 totalPrice = Integer.parseInt(data[3]);
+                } else {
+                    totalPrice = 0;
                 }
                 // add the item to the map
-                Item itemObj = new Item(item, item, quantity, totalPrice/quantity);
+                Item itemObj = new Item(item, item, quantity, totalPrice);
                 System.out.println(itemObj);
                 db.addItem(item, itemObj);
                 // add the card number to the map
