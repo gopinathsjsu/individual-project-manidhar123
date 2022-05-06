@@ -56,7 +56,6 @@ In this project, the database is injected into the other classes.
 Composite Design Pattern - This is used to create a tree structure of the database.
 
 # Screen Shots
-<img width="1283" alt="image" src="https://user-images.githubusercontent.com/100320652/166870390-bed79fdb-9338-4c84-a6fe-9bb0b67c3aaa.png">
 <img width="1085" alt="image" src="https://user-images.githubusercontent.com/100320652/166987004-754cee14-a58a-4072-939a-d7d739e046e3.png">
 
 
