@@ -52,7 +52,7 @@ public class Db {
         categories.put(category, categoryObj);
     }
 
-    public static void addItem(String item, Item itemObj) {
+    public void addItem(String item, Item itemObj) {
         items.put(item, itemObj);
     }
 

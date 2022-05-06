@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class Billing {
@@ -43,33 +44,31 @@ public class Billing {
 
             }
             br.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     // process the order
-    public static void processOrder(String orderFile) {
+    public static void processOrder(int totalprice) {
         try {
-            BufferedReader br = new BufferedReader(new FileReader(orderFile));
-            String line = br.readLine();
-            while (line != null) {
-                String[] tokens = line.split(",");
-                System.out.println(tokens[0]);
-                System.out.println(tokens[1]);
-
-                if (tokens[0].equals("Order")) {
-                    // process the order
-                    String orderId = tokens[1];
-                    String cardNumber = tokens[2];
-                    String item = tokens[3];
-                    int quantity = Integer.parseInt(tokens[4]);
-                    Order orderObj = new Order(orderId, cardNumber, item, quantity);
-                    Db.addOrder(orderId, orderObj);
-                }
-                line = br.readLine();
+            String messagefile = "message.txt";
+            String outputfile = "output.txt";
+            // Wrtie total price in ooutput.csv or a message in txt file if order is not processed
+            if (totalprice > 0) {
+                FileWriter fw = new FileWriter(outputfile);
+                fw.write("Total price " + totalprice);
+                fw.write(totalprice);
+                fw.close();
+            } else {
+                FileWriter fw = new FileWriter(messagefile);
+                fw.write("Order not processed");
+                fw.close();
             }
-            br.close();
+
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -78,8 +77,27 @@ public class Billing {
     public static void main(String[] args) {
         Billing billing = new Billing();
         billing.db = new Db();
+
+  
+
+        Item[] items = new Item[10];
+        items[0] = new Item("Clothes", "Essentials", 100, 20);
+        items[1] = new Item("Soap", "Essentials", 200, 5);
+        items[2] = new Item("Shampoo", "Essentials", 200, 10);
+        items[3] = new Item("Milk", "Essentials", 100, 5);
+        items[4] = new Item("Perfume", "Luxury", 50, 50);
+        items[5] = new Item("Chocolates", "Luxury", 300, 3);
+        items[6] = new Item("Handbag", "Luxury", 75, 150);
+        items[7] = new Item("Wallet", "Luxury", 100, 100);
+        items[8] = new Item("Bedsheet", "Misc", 150, 75);
+        items[9] = new Item("Footware", "Misc", 200, 25);
+        for (int i = 0; i < items.length; i++) {
+            db.addItem(items[i].getItem(), items[i]);
+        }
+
+
         readInputFile("input.csv");
-        // processOrder("output.csv");
+        processOrder(165);
         Db.printOrders();
         Db.printCardNumbers();
         ;
@@ -87,3 +105,43 @@ public class Billing {
     }
 
 }
+
+
+
+// Items	
+
+// Item	Category	Quantity	Price (per unit)
+// Clothes	Essentials	100	20
+// Soap	Essentials	200	5
+// Shampoo	Essentials	200	10
+// Milk	Essentials	100	5
+// Perfume	Luxury	50	50
+// Chocolates	Luxury	300	3
+// Handbag	Luxury	75	150
+// Wallet	Luxury	100	100
+// Bedsheet	Misc	150	75
+// Footware	Misc	200	25
+// HomeDecorPiece	Misc	100	40
+// pen	Misc	400	3
+// pencil	Misc	400	3
+
+
+// Cards			
+// CardNumber			
+// 5.41E+15			
+// 4.12E+12			
+// 3.41E+14			
+// 6.01E+15
+
+
+// Item	Quantity	CardNumber
+// Shampoo	2	4.12E+12
+// chocolates	5	
+// Wallet	1	
+// Pen	10	
+
+// Item	Quantity	Price	TotalPrice
+// Shampoo	2	20	165
+// chocolates	5	15	
+// Wallet	1	100	
+// Pen	10	30	
